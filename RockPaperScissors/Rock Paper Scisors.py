@@ -1,7 +1,7 @@
 from random import randint
-#from tkinter import *
 import tkinter as tk
-import time
+import time as time
+from tkinter import StringVar
 from PIL import ImageTk,Image
 
 # Variables
@@ -10,12 +10,17 @@ def endGame():
     time.sleep(3)
     exit()
 
-#def startGame():
-    #print("Lets begin" + userName + ', good luck!')
+def startGame():
+    print("Lets begin" + userNameIP.get() + ', good luck!')
 
-#userName.variable = tk.StringVar()
-#userName.set("")
-#userNameIP.get()
+def userName():
+    userNameIP.entry = StringVar()
+    userNameIP.set("")
+    userNameIP.get()
+
+def enterUserName():
+    print("Welcome " + userNameIP.get() + ", press Start Game to play.")
+
 
 # setting up tkinter
 window = tk.Tk()
@@ -40,7 +45,8 @@ labelGameName = tk.Label(top_frame, text="Lets play - Rock Paper Scissors", pady
 gameImage = ImageTk.PhotoImage(Image.open(path))
 imagePanel = tk.Label(middle_frame, image = gameImage)
 userNameLabel = tk.Label(middle_frame, text= "Please enter your name : ", bg="white", fg="black")
-userNameIP = tk.Entry(middle_frame, justify = "center",) #textvariable=userName)
+userNameIP = tk.Entry(middle_frame, justify = "center",)
+enterUserName = tk.Button(middle_frame, text = "Enter user name", command=enterUserName)
 
 # bottom frame items
 buttonStart = tk.Button(bottom_frame, text="Start Game", pady = "5", padx = "5")
@@ -54,6 +60,7 @@ imagePanel.pack(fill = "both", expand = "yes", pady = "5" )
 buttonQuit.pack(side = "left")
 buttonStart.pack(side = "bottom")
 userNameLabel.pack()
+enterUserName.pack(side = "bottom", pady = "3")
 userNameIP.pack(side = "bottom", pady = "10",)
 
 top_frame.pack(side = "top")
@@ -64,6 +71,8 @@ bottom_frame.pack(side = "bottom")
 # Start the window GUI
 window.mainloop()
 
+
+##### game code #####
 while True:
 
     print("Lets play Rock, Paper, Scissors ... \n")

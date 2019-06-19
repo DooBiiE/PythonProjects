@@ -12,7 +12,7 @@ def endGame():
 
 def startGame():
     print("Lets begin" + userNameIP.get() + ', good luck!')
-    
+
 
 def userName():
     userNameIP.entry = StringVar()
@@ -21,9 +21,15 @@ def userName():
 
 def enterUserName():
     enterUserName.pack_forget()
-    label = tk.Label(middle_frame, text="Welcome " + userNameIP.get() + ", press Start Game to play.", bg="white")
-    label.pack()
+    userNameLabel = tk.Label(middle_frame, text="Welcome " + userNameIP.get() + ", press Start Game to play.", bg="white")
+    userNameLabel.pack()
+    userNameIP.pack_forget()
+    #userNameLabel.pack
 
+def resetUserName():
+    userNameLabel.pack_forget()
+    enterUserName.pack()
+    userNameIP.pack (side = "bottom", pady = "10",)
 
 
 
@@ -59,21 +65,25 @@ enterUserName = tk.Button(middle_frame, text = "Enter username", command=enterUs
 # bottom frame items
 buttonStart = tk.Button(bottom_frame, text="Start Game", pady = "5", padx = "5")
 buttonQuit = tk.Button(bottom_frame, text="Exit", command= endGame,)
-
+buttonReset =tk.Button(bottom_frame, text = "Reset username", command= resetUserName,)
 
 # Packing widgets into tk window
+# Top frame pack
 labelGameName.pack(side = "top", pady = "5")
 imagePanel.pack(fill = "none", expand = "yes", pady = "5" )
 
-buttonQuit.pack(side = "left")
-buttonStart.pack(side = "bottom", ipadx = "30", padx = "5")
-userNameLabel.pack()
-
-
+# Middle frame pack
 enterUserName.pack(side = "bottom", pady = "3")
 userNameIP.pack(side = "bottom", pady = "10",)
+userNameLabel.pack()
+
+# Bottom frame pack
+buttonQuit.pack(side = "left")
+buttonReset.pack(side = "right")
+buttonStart.pack(side = "bottom", ipadx = "30", padx = "5", anchor = "center")
 
 
+# Frame packing
 top_frame.pack(side = "top")
 middle_frame.pack()
 bottom_frame.pack(side = "bottom", pady = "5")

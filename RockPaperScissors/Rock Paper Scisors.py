@@ -13,26 +13,21 @@ def endGame():
 def startGame():
     print("Lets begin" + userNameIP.get() + ', good luck!')
 
-
 def userName():
     userNameIP.entry = StringVar()
     userNameIP.set("")
     userNameIP.get()
 
 def enterUserName():
-    enterUserName.pack_forget()
+    enterUserNameButton.pack_forget()
     userNameLabel = tk.Label(middle_frame, text="Welcome " + userNameIP.get() + ", press Start Game to play.", bg="white")
     userNameLabel.pack()
     userNameIP.pack_forget()
-    #userNameLabel.pack
 
 def resetUserName():
     userNameLabel.pack_forget()
-    enterUserName.pack()
+    enterUserNameButton.pack()
     userNameIP.pack (side = "bottom", pady = "10",)
-
-
-
 
 # setting up tkinter
 window = tk.Tk()
@@ -59,7 +54,7 @@ gameImage = ImageTk.PhotoImage(Image.open(path))
 imagePanel = tk.Label(middle_frame, image = gameImage)
 userNameLabel = tk.Label(middle_frame, text= "Please enter your name : ", bg="white", fg="black")
 userNameIP = tk.Entry(middle_frame, justify = "center",)
-enterUserName = tk.Button(middle_frame, text = "Enter username", command=enterUserName)
+enterUserNameButton = tk.Button(middle_frame, text = "Enter username", command=enterUserName)
 
 
 # bottom frame items
@@ -73,7 +68,7 @@ labelGameName.pack(side = "top", pady = "5")
 imagePanel.pack(fill = "none", expand = "yes", pady = "5" )
 
 # Middle frame pack
-enterUserName.pack(side = "bottom", pady = "3")
+enterUserNameButton.pack(side = "bottom", pady = "3")
 userNameIP.pack(side = "bottom", pady = "10",)
 userNameLabel.pack()
 
@@ -82,20 +77,22 @@ buttonQuit.pack(side = "left")
 buttonReset.pack(side = "right")
 buttonStart.pack(side = "bottom", ipadx = "30", padx = "5", anchor = "center")
 
-
 # Frame packing
 top_frame.pack(side = "top")
 middle_frame.pack()
 bottom_frame.pack(side = "bottom", pady = "5")
 middleBottom_frame.pack(side = "bottom")
 
-
-
 # Start the window GUI
 window.mainloop()
 
 
-##### game code #####
+
+
+
+
+
+##### game code ##### -----------------------------------
 while True:
 
     print("Lets play Rock, Paper, Scissors ... \n")

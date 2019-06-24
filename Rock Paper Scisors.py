@@ -20,7 +20,7 @@ def userName():
 
 def enterUserName():
     enterUserNameButton.pack_forget()
-    inputUserNameLabel= tk.Label(middle_frame, text="Welcome " + userNameIP.get() + ", press Start Game to play.", bg="white")
+    inputUserNameLabel= tk.Label(middle_frame, text = "Welcome " + userNameIP.get() + ", press Start Game to play.", bg = "white")
     inputUserNameLabel.pack()
     userNameLabel.pack_forget()
     userNameIP.pack_forget()
@@ -35,7 +35,7 @@ def resetUserName():
 # setting up tkinter
 window = tk.Tk()
 window.title("Rock Paper Scissors")
-window.geometry("400x300")
+window.geometry("400x400")
 window.configure(background="black")
 window.iconbitmap("RPS.ico")
 
@@ -44,27 +44,27 @@ path = "RockPaperScissors100x90.png"
 
 # tkinter widgets
 # separated into 2 sections top/middle/bottom
-top_frame = tk.Frame(window, bg="black", width =250, height = 50)
-middle_frame = tk.Frame(window, bg="white", width = 250, height = 250)
-middleBottom_frame = tk.Frame(window, bg="white", width = 350, height = 5)
-bottom_frame = tk.Frame(window, bg="black", width =250, height = 100)
+top_frame = tk.Frame(window, bg = "cyan", width =400, height = 100)
+middle_frame = tk.Frame(window, bg = "white", width = 250, height = 250)
+middleBottom_frame = tk.Frame(window, bg = "white", width = 350, height = 5)
+bottom_frame = tk.Frame(window, bg = "lavender", width =400, height = 100)
 
 # top frame items
-labelGameName = tk.Label(top_frame, text="Lets play - Rock Paper Scissors", pady = "1", bg="black", fg="white")
+labelGameName = tk.Label(top_frame, text = "Lets play - Rock Paper Scissors", pady = "1", bg="black", fg = "white", anchor = "center")
 
 # middle frame items
 gameImage = ImageTk.PhotoImage(Image.open(path))
 imagePanel = tk.Label(middle_frame, image = gameImage)
-userNameLabel = tk.Label(middle_frame, text= "Please enter your name :", bg="white", fg="black")
+userNameLabel = tk.Label(middle_frame, text= "Please enter your name :", bg = "white", fg = "black")
 userNameIP = tk.Entry(middle_frame, justify = "center", text=" ")
 enterUserNameButton = tk.Button(middle_frame, text = "Enter username", command=enterUserName)
-inputUserNameLabel = tk.Label(middle_frame, bg="white", text= " ")
+inputUserNameLabel = tk.Label(middle_frame, bg = "white", text= " ")
 
 
 # bottom frame items
 buttonStart = tk.Button(bottom_frame, text="Start Game", pady = "5", padx = "5")
 buttonQuit = tk.Button(bottom_frame, text="Exit", command= endGame,)
-buttonReset =tk.Button(bottom_frame, text = "Reset username", command= resetUserName,)
+buttonReset =tk.Button(bottom_frame, text = "Reset username", command = resetUserName,)
 
 # Packing widgets into tk window
 # Top frame pack
@@ -78,15 +78,15 @@ userNameLabel.pack()
 inputUserNameLabel.pack()
 
 # Bottom frame pack
-buttonQuit.pack(side = "left")
-buttonReset.pack(side = "right")
-buttonStart.pack(side = "bottom", ipadx = "30", padx = "5", anchor = "center")
+buttonQuit.pack(side = "left", padx = "1", ipady = "1")
+buttonReset.pack(side = "right", padx = "1", ipady = "1")
+buttonStart.pack(side = "bottom", ipadx = "20", padx = "5", anchor = "center" )
 
 # Frame packing
-top_frame.pack(side = "top")
-middle_frame.pack()
-bottom_frame.pack(side = "bottom", pady = "5")
-middleBottom_frame.pack(side = "bottom")
+top_frame.pack(side = "top", fill = "both", pady = "2")
+middle_frame.place(relx = .5, rely = .5, anchor = "center")
+bottom_frame.pack(side = "bottom", pady = "5", anchor = "center", ipady = "2")
+middleBottom_frame.pack(side = "bottom", anchor = "center")
 
 # Start the window GUI
 window.mainloop()

@@ -20,14 +20,20 @@ def userName():
 
 def enterUserName():
     enterUserNameButton.pack_forget()
-    userNameLabel = tk.Label(middle_frame, text="Welcome " + userNameIP.get() + ", press Start Game to play.", bg="white")
-    userNameLabel.pack()
+    inputUserNameLabel= tk.Label(middle_frame, text="Welcome " + userNameIP.get() + ", press Start Game to play.", bg="white")
+    inputUserNameLabel.pack()
+    #userNameLabel.pack()
+    userNameLabel.pack_forget()
     userNameIP.pack_forget()
 
+
 def resetUserName():
-    userNameLabel.pack_forget()
+    #inputUserNameLabel.pack_forget()
+    inputUserNameLabel.destroy()
+    userNameLabel.pack()
     enterUserNameButton.pack()
     userNameIP.pack (side = "bottom", pady = "10",)
+    inputUserNameLabel.pack_forget()
 
 # setting up tkinter
 window = tk.Tk()
@@ -52,9 +58,10 @@ labelGameName = tk.Label(top_frame, text="Lets play - Rock Paper Scissors", pady
 # middle frame items
 gameImage = ImageTk.PhotoImage(Image.open(path))
 imagePanel = tk.Label(middle_frame, image = gameImage)
-userNameLabel = tk.Label(middle_frame, text= "Please enter your name : ", bg="white", fg="black")
-userNameIP = tk.Entry(middle_frame, justify = "center",)
+userNameLabel = tk.Label(middle_frame, text= "userNameLabel", bg="white", fg="black") #Please enter your name :
+userNameIP = tk.Entry(middle_frame, justify = "center", text=" ")
 enterUserNameButton = tk.Button(middle_frame, text = "Enter username", command=enterUserName)
+inputUserNameLabel = tk.Label(middle_frame, bg="white", text= "inputUserNameLabel")
 
 
 # bottom frame items
@@ -71,6 +78,7 @@ imagePanel.pack(fill = "none", expand = "yes", pady = "5" )
 enterUserNameButton.pack(side = "bottom", pady = "3")
 userNameIP.pack(side = "bottom", pady = "10",)
 userNameLabel.pack()
+inputUserNameLabel.pack()
 
 # Bottom frame pack
 buttonQuit.pack(side = "left")

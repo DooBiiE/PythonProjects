@@ -50,7 +50,7 @@ middleBottom_frame = tk.Frame(window, bg = "white", width = 350, height = 5)
 bottom_frame = tk.Frame(window, bg = "lavender", width =400, height = 100)
 
 # top frame items
-labelGameName = tk.Label(top_frame, text = "Lets play - Rock Paper Scissors", pady = "1", bg="black", fg = "white", anchor = "center")
+labelGameName = tk.Label(top_frame, text = "Lets play - Rock Paper Scissors", pady = "1", bg="cyan", fg = "black", anchor = "center")
 
 # middle frame items
 gameImage = ImageTk.PhotoImage(Image.open(path))
@@ -85,8 +85,8 @@ buttonStart.pack(side = "bottom", ipadx = "20", padx = "5", anchor = "center" )
 # Frame packing
 top_frame.pack(side = "top", fill = "both", pady = "2")
 middle_frame.place(relx = .5, rely = .5, anchor = "center")
-bottom_frame.pack(side = "bottom", pady = "5", anchor = "center", ipady = "2")
-middleBottom_frame.pack(side = "bottom", anchor = "center")
+bottom_frame.place(relx = .5, rely = .92, anchor = "c") # side = "bottom" anchor = "center", ipady = "2", pady = "5"
+middleBottom_frame.place(relx = .5, rely = .85, anchor = "c") # side = "bottom"
 
 # Start the window GUI
 window.mainloop()
